@@ -1,9 +1,17 @@
 # Hangman
 
-**Hangman is a word guessing game where users need to guess the missing letters within the limited chances.**
-This is how the code works if the user guesses the correct letters
+**The objective of Hangman is to guess the missing letters of the word before the stick figure is hung.**
+
+![image](https://github.com/sammy-9930/Hangman/assets/80445152/fb185dde-b23f-41f1-b30b-e66726e93ebb)
 
 
-![image](https://user-images.githubusercontent.com/80445152/202841451-f306ace1-65f6-4112-9562-0bec245e1b98.png)
-![image](https://user-images.githubusercontent.com/80445152/202841485-57a28db3-6745-4558-aa88-ac31fe19aa9e.png)
+If the correct letters are guessed, the user wins!
+
+https://github.com/sammy-9930/Hangman/blob/main/hangman.pdf
+
+If the user fails to guess the correct letters, they loose.
+
+https://github.com/sammy-9930/Hangman/blob/main/hangman-negative.pdf
+
+
 

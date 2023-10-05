@@ -4,6 +4,7 @@ from art import end_text, logo
 from hangman import hangman
 from number_guessing import number_guessing
 
+
 def validate_user_choice(user_input):
     if user_input == 0 or user_input == 1:
         return True

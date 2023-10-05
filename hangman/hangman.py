@@ -1,6 +1,7 @@
 import random
 import sys
-from .hangman_art import stages, logo
+
+from .hangman_art import logo, stages
 from .hangman_words import word_list
 
 
@@ -13,7 +14,7 @@ def play_hangman():
     end_of_game = False
     lives = 6
     # Testing code
-    print(f'Pssst, the solution is {chosen_word}.')
+    print(f"Pssst, the solution is {chosen_word}.")
 
     # Create blanks
     display = []
@@ -55,9 +56,13 @@ def play_hangman():
 
 
 def run_hangman():
-    user_choice_game1 = int(input("Enter 1 to continue\n"
-          "Enter 0 to exit\n"
-          "Enter any other key to return to main\n"))
+    user_choice_game1 = int(
+        input(
+            "Enter 1 to continue\n"
+            "Enter 0 to exit\n"
+            "Enter any other key to return to main\n"
+        )
+    )
     if user_choice_game1 == 0:
         sys.exit("Thank you for playing. \n Warm regards :)")
     elif user_choice_game1 == 1:
@@ -68,5 +73,5 @@ def run_hangman():
         return
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     run_hangman()

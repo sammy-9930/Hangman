@@ -1,57 +1,46 @@
-#importing required modules
-import random
-import hangman_words
-import hangman_art
+import sys
+from art import logo, end_text
+from hangman import hangman
 
-#'word_list' from hangman_words.py
-word_list = hangman_words.word_list
-#choose a random word from the list of words
-chosen_word = random.choice(word_list)
-#extracting length of the word
-word_length = len(chosen_word)
-#variable to determine if user has guessed all the letters 
-end_of_game = False
-lives = 6
 
-#Import the logo from hangman_art.py and print it at the start of the game.
-print(hangman_art.logo)
-#Testing code
-# print(f'Pssst, the solution is {chosen_word}.')
+def validate_user_choice(user_input):
+    if user_input == 0 or user_input == 1:
+        return True
+    return False
 
-#Create blanks
-display = []
-for _ in range(word_length):
-    display += "_"
 
-while not end_of_game:
-    guess = input("Guess a letter: ").lower()
+def validate_game_choice(game_input):
+    if game_input in (0,2):
+        return True
+    return False
 
-    #If the user has entered a letter they've already guessed, print the letter and let them know.
-    if guess in display:
-        print(f"You've already guessed {guess}")
-    #Check guessed letter
-    for position in range(word_length):
-        letter = chosen_word[position]
-        # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
-        if letter == guess:
-            display[position] = letter
 
-    #Check if user is wrong.
-    if guess not in chosen_word:
-        #If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.
-        print(f"{guess} not in the word. You lose a life")
-        lives -= 1
-        if lives == 0:
-            end_of_game = True
-            print("You lose.")
+def main_menu():
+    """This function is to execute the program"""
+    while True:
+        user_choice = int(input("Press 1 to play games or 0 to exit \n"))
+        if not validate_user_choice(user_choice):
+            print("Invalid choice. Enter again: ")
+        if user_choice == 0:
+            print(end_text)
+            print("Glad to see you. \n Warm regards :) ")
+            sys.exit()
+        while user_choice != 0:
+            print(logo)
+            if user_choice == 1:
+                game_choice = int(input("Press 1 to play Hangman\n"
+                                    "Press 2 to play Turtle crossing game\n"
+                                    "Press 0 to exit\n"))
+                if game_choice == 1:
+                    print("Welcome to the Hangman game")
+                    hangman.run_hangman()
 
-    #Join all the elements in the list and turn it into a String.
-    print(f"{' '.join(display)}")
+                elif game_choice == 2:
+                    print("Welcome to the turtle crossing game")
+                else:
+                    print(end_text)
+                    sys.exit("Glad to see you. \n Warm regards :)")
 
-    #Check if user has got all letters.
-    if "_" not in display:
-        end_of_game = True
-        print("You win.")
 
-    #print the art figures to indicate different stages
-    print(hangman_art.stages[lives])
+if __name__ == '__main__':
+    main_menu()

@@ -1,8 +1,8 @@
 import random
 import sys
 
-from .hangman_art import logo, stages
-from .hangman_words import word_list
+from hangman.hangman_art import logo, stages
+from hangman.hangman_words import word_list
 
 
 def play_hangman():

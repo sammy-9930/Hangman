@@ -3,6 +3,7 @@ import sys
 from art import end_text, logo
 from hangman import hangman
 from number_guessing import number_guessing
+from turtle_crossing import turtle
 
 
 def validate_user_choice(user_input):
@@ -42,7 +43,7 @@ def main_menu():
                 if game_choice == 1:
                     hangman.run_hangman()
                 elif game_choice == 2:
-                    print("Welcome to the turtle crossing game.")
+                    turtle.run_turtle_game()
                 elif game_choice == 3:
                     number_guessing.number_guessing_game()
                 else:
